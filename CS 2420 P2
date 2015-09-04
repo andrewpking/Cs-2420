@@ -1,0 +1,89 @@
+CS 2420 Project 2
+Andrew King
+Anthony Dirkson
+
+Objects we are required to define in a class:
+  * Library Book
+  * Library Book Generic
+  * Library Generic
+
+What is each object made of?
+  -Library Book
+    * IS-A book
+    * HAS-A holder (person who checked it out)
+    * HAS-A due date
+    * HAS-A method for checking books in and out
+  -Library Book Generic
+    * IS-A Library book
+    * HAS-A generic library book holder
+  -Library Generic
+    * IS-A Library
+
+What is a Library book?
+  -IS-A book
+  -private variables
+    *String holder
+    *GregorianCalendar dueDate
+    *if book is checked in both fields are null
+  -Methods
+    *public LibraryBook(long isbn, String author, String title) //constructor
+    *public String getHolder()
+    *public GregorianCalendar getDueDate()
+    *Check in/Check out methods  //draft later
+      a)
+      b)
+      c)
+      d)
+
+Which provided classes need methods defined?
+  * Book
+  * Library
+
+How are these classes defined?
+  -What is a book?
+    *long ISBN
+    *String author
+    *String title
+    @Getter methods
+    @equals method
+    @toString method
+  -What is a Library?
+    *ArrayList<LibraryBook> library
+    @Adder methods
+    @Lookup methods
+    @Checkout methods
+    @Checkin methods
+
+Book classes to implement:
+  - boolean equals(Object o)
+    *checks two books for equality by comparing
+      a) ISBN
+      b) Title
+      c) Author
+
+Library classes to implement:
+  -public String lookup(long ISBN)
+    *finds the book by ISBN and returns the holder's name
+    *if the book isn't in the library return null
+  -public ArrayList<LibraryBook> lookup (String holder)
+    *Accepts a holder as an argument
+    *Returns their queue of books to be checked out.
+  -public boolean checkout(long isbn, String holder, int month, int day, int year)
+    *Month, Day, and Year represent the checkout date for the book
+    *Sets holder and due date of LibraryBook
+    *If no book with specified ISBN is in library, return false
+    *If the book with specified ISBN is already checked out, return false
+    *If the book successfully checks out, return true
+  -public boolean checkin(long isbn)
+    *Unsets holder and due date
+    *If no book with specified ISBN is in library, return false
+    *If the book is already checked in, return false
+    *If the book checks in properly, return true
+  -public boolean checkin(String holder)
+    *Unsets holder and all due dates of books held by holder
+    *If no books with the specified holder are in the library, return false
+    *If the books check in, return true
+
+Which classes need more test cases?
+  * Library Tester
+  * Library Generic Tester
